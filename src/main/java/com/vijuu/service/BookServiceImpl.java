@@ -1,5 +1,7 @@
 package com.vijuu.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,16 @@ public class BookServiceImpl implements BookService {
 		brepo.save(book);
 		
 		return "book details inserted";
+	}
+
+	@Override
+	public List<Book> getAllBookDetails() {
+		List<Book> list = brepo.findAll();
+		for (Book b : list) {
+			System.out.println(b);
+		}
+		
+		return list;
 	}
 
 }
